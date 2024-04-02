@@ -4,9 +4,8 @@ from sklearn.decomposition import FastICA
 from math import floor
 
 class EEG_Features():
-    
     def stft_features(X):
-        N_feat = 100    
+        N_feat = 200    
         n_c = 40
         X_ica = FastICA(n_components=n_c).fit_transform(X.T).T
         stft = np.abs(librosa.stft(X_ica, n_fft=128))
@@ -23,7 +22,7 @@ class EEG_Features():
 class Audio_Features():
     
     def mfcc_features(audio_signal):
-        N_feat = 100
+        N_feat = 200
         feats = np.zeros((N_feat, 40))
         for start in range(0, N_feat):
             end = start+3
