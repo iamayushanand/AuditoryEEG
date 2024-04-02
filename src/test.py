@@ -1,5 +1,5 @@
-from evaluator import Evaluator
-from dataset import Dataset
+from .evaluator import Evaluator
+from .dataset import Dataset
 import pandas as pd
 dataset = Dataset()
 evaluator = Evaluator(dataset, N_experiments=2)

@@ -76,6 +76,9 @@ class Dataset():
         return audio_signal[onset*sr:]
 
     def prepare_dataset(self, N=5):
+        if self.eeg_feature_db.size:
+            print("data already prepared!")
+            return self.audio_feature_db, self.eeg_feature_db
         
         count = 0
         idx = 0
@@ -87,7 +90,8 @@ class Dataset():
             events, X = self.load_sample(idx)
             audio_signal = self.audio_signal_from_event(events)
             audio_features = Audio_Features.mfcc_features(audio_signal)
-            eeg_features = EEG_Features.stft_features(X)
+            #eeg_features = EEG_Features.stft_features(X)
+            eeg_features = EEG_Features.wavelet_features(X)
             self.audio_feature_db = np.vstack([self.audio_feature_db, audio_features]) if self.audio_feature_db.size else audio_features
             self.eeg_feature_db = np.vstack([self.eeg_feature_db, eeg_features]) if self.eeg_feature_db.size else eeg_features
             count+=1

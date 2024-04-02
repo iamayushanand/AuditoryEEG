@@ -1,4 +1,4 @@
-from dataset import Dataset
+from .dataset import Dataset
 from sklearn.ensemble import RandomForestClassifier as rfc
 from sklearn.linear_model import LogisticRegression as lr
 from sklearn.metrics import classification_report
