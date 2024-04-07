@@ -1,5 +1,7 @@
 # AuditoryEEG
 Source code for Speech Understanding course minor project based on Auditory EEG match mismatch prediction problem.
+## All 64 channels of EEG after ICA
+![image](https://github.com/iamayushanand/AuditoryEEG/assets/11822566/1aa931f8-ef46-47cb-afb3-f29dc504867d)
 
 ## Modules
 
